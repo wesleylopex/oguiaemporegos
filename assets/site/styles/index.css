@@ -1,0 +1,66 @@
+*, html, body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Fix Select2 */
+
+.select2-container .select2-selection--multiple {
+  min-height: 42px !important;
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+  vertical-align: middle !important;
+  height: 22px !important;
+  margin-top: 8px !important;
+}
+
+.select2.select2-container {
+  width: 100% !important;
+}
+
+#step-middle-line {
+  width: 1px;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+
+.image-preview:hover .image-preview__overlay {
+  opacity: 1;
+}
+
+.alert {
+  transform: translate(-50%, 100%);
+  bottom: -1rem;
+  transition: all .6s linear;
+  z-index: 999999;
+}
+
+.alert.alert--active {
+  transform: translate(-50%, 0);
+  bottom: 1.5rem;
+}
+
+.rotating {
+  -webkit-animation: rotating 1.4s linear infinite;
+  -moz-animation: rotating 1.4s linear infinite;
+  -ms-animation: rotating 1.4s linear infinite;
+  -o-animation: rotating 1.4s linear infinite;
+  animation: rotating 1.4s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

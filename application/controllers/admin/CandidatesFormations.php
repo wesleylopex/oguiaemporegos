@@ -1,0 +1,102 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class CandidatesFormations extends AdminGodController {
+	protected $model = 'CandidatesFormationsModel';
+	protected $names = [
+		'singular' => 'formação',
+		'plural' => 'formações',
+		'link' => 'candidatesFormations',
+	];
+	protected $permissions = [
+		'create' => false,
+		'update' => true,
+		'delete' => true
+	];
+	protected $fields = [
+		[
+			'name' => 'id',
+			'label' => 'Id',
+			'type' => 'hidden',
+			'showOnTable' => false,
+			'rules' => 'trim',
+		],
+		[
+			'name' => 'candidate_id',
+			'label' => 'Candidato',
+			'type' => 'select',
+			'baseForeignLinkOnLabel' => 'admin/candidates/update',
+			'options' => [
+				'model' => 'candidatesModel',
+				'value' => 'id',
+				'text' => 'name',
+			],
+			'fromDataBase' => true,
+			'showOnTable' => true,
+			'rules' => 'trim',
+			'disabled' => true,
+			'col' => 'col-md-4'
+		],
+		[
+			'name' => 'formation_id',
+			'label' => 'Grau de formação',
+			'type' => 'select',
+			'fromDataBase' => true,
+			'options' => [
+				'model' => 'formationsModel',
+				'value' => 'id',
+				'text' => 'training_degree',
+			],
+      'showOnTable' => true,
+      'rules' => 'trim|required',
+			'required' => true,
+			'col' => 'col-md-4',
+		],
+		[
+			'name' => 'institution_name',
+			'label' => 'Nome da instituição',
+      'type' => 'text',
+      'showOnTable' => true,
+      'rules' => 'trim|required',
+			'required' => true,
+			'col' => 'col-md-4',
+		],
+		[
+			'name' => 'course_name',
+			'label' => 'Nome do curso',
+      'type' => 'text',
+      'showOnTable' => true,
+      'rules' => 'trim|required',
+			'required' => true,
+			'col' => 'col-md-4',
+		],
+		[
+			'name' => 'semester',
+			'label' => 'Semestre',
+      'type' => 'text',
+      'showOnTable' => true,
+      'rules' => 'trim',
+			'col' => 'col-md-4',
+		],
+		[
+			'name' => 'started_at',
+			'label' => 'Data de início',
+      'type' => 'text',
+      'showOnTable' => true,
+      'rules' => 'trim|required',
+			'required' => true,
+			'col' => 'col-md-4',
+		],
+		[
+			'name' => 'ended_at',
+			'label' => 'Data de término',
+      'type' => 'text',
+      'showOnTable' => true,
+      'rules' => 'trim',
+			'col' => 'col-md-4',
+		],
+	];
+
+	function __construct () {
+		parent::__construct();
+	}
+}
